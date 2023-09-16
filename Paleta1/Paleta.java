@@ -1,5 +1,5 @@
 package Paleta1;
-
+//Ejercicio de herencia
 public class Paleta {
     private String sabor;
     private double precio;

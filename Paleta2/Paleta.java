@@ -1,5 +1,5 @@
 package Paleta2;
-
+//Ejercicio de polimorfismo
 public class Paleta {
     private String sabor;
     private double precio;

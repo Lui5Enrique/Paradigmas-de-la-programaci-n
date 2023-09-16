@@ -1,5 +1,5 @@
 package Paleta3;
-
+//Ejercicio de excepciones
 public class Paleta {
     private String sabor;
     private double precio;

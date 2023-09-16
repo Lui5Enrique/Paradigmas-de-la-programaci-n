@@ -1,5 +1,5 @@
 package Figuras4;
-
+//Ejercicio de interfaces
 //interfaz para tener los métodos que se usaran en las demas subclases.
 interface FigCalculos {
     double calcularArea();

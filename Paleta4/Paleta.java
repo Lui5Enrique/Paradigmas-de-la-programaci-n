@@ -1,5 +1,5 @@
 package Paleta4;
-
+//Ejercicio de interfaces
 interface cambiosPaleta {
     public void cambioPrecio();
 

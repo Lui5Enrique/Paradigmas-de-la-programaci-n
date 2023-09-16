@@ -1,5 +1,5 @@
 package Figuras1;
-
+//Ejecicio de Herencia
 public class Figuras {
     private String nombre;
 

@@ -1,5 +1,5 @@
 package Figuras2;
-
+//Ejercicio de polimorfismo
 public class Figuras {
     private String nombre;
 

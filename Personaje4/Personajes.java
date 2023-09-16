@@ -1,5 +1,5 @@
 package Personaje4;
-
+//Ejercicio de interfaces
 interface habilidadesMagicas {
     public void manipularTiempo();
 

@@ -1,5 +1,5 @@
 package Personaje3;
-
+//Ejercicio de excepciones
 public class Personajes {
     private String nombre;
     private int nivel;

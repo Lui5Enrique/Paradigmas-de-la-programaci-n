@@ -1,5 +1,5 @@
 package Personaje2;
-
+//Ejercicio de polimorfismo
 public class Personajes {
     private String nombre;
     private int nivel;

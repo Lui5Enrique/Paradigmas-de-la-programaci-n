@@ -1,5 +1,5 @@
 package Personaje1;
-
+//Ejercicio de herencia
 public class Personajes {
     private String nombre;
     private int nivel;

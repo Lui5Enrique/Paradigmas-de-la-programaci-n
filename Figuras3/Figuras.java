@@ -1,5 +1,5 @@
 package Figuras3;
-
+//Ejercicio de excepciones
 public class Figuras {
     private String nombre;
 
