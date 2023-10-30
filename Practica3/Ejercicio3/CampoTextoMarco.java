@@ -1,7 +1,7 @@
 package Ejercicio3;
 
-// Fig. 12.9: CampoTextoMarco.java
-// Los componentes JTextField y JPasswordField.
+// Fig. 12.9: TextFieldFrame.java
+// JTextField and JPasswordField components.
 import java.awt.FlowLayout;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -11,29 +11,29 @@ import javax.swing.JPasswordField;
 import javax.swing.JOptionPane;
 
 public class CampoTextoMarco extends JFrame {
-    private final JTextField campoTexto1; // campo de texto con tamaño fijo
-    private final JTextField campoTexto2; // campo de texto con texto
-    private final JTextField campoTexto3; // campo de texto con texto y tamaño
-    private final JPasswordField campoContrasenia; // campo de contraseña con texto
+    private final JTextField campoTexto1; // text field with fixed size
+    private final JTextField campoTexto2; // text field with text
+    private final JTextField campoTexto3; // text field with text and size
+    private final JPasswordField campoContrasenia; // password field with text
 
-    // El constructor de CampoTextoMarco agrega objetos JTextField a JFrame
+    // TextFieldFrame constructor adds JTextFields to JFrame
     public CampoTextoMarco() {
         super("Prueba de JTextField y JPasswordField");
         setLayout(new FlowLayout());
-        // construye campo de texto con 10 columnas
+       // construct text field with 10 columnas
         campoTexto1 = new JTextField(10);
-        add(campoTexto1); // agrega campoTexto1 a JFrame
-        // construye campo de texto con texto predeterminado
+        add(campoTexto1); // add textField1 to JFrame
+        // construct text field with default text
         campoTexto2 = new JTextField("Escriba el texto aqui");
-        add(campoTexto2); // agrega campoTexto2 a JFrame
-        // construye campo de texto con texto predeterminado y 21 columnas
+        add(campoTexto2); // add textField2 to JFrame
+        // construct text field with default text and 21 columns
         campoTexto3 = new JTextField("Campo de texto no editable", 21);
-        campoTexto3.setEditable(false); // deshabilita la edición
-        add(campoTexto3); // agrega campoTexto3 a JFrame
-        // construye campo de contraseña con texto predeterminado
+        campoTexto3.setEditable(false); // disable editing
+        add(campoTexto3); // add textField3 to JFrame
+        // construct password field with default text
         campoContrasenia = new JPasswordField("Texto oculto");
-        add(campoContrasenia); // agrega campoContrasenia a JFrame
-        // registra los manejadores de eventos
+        add(campoContrasenia); // add passwordField to JFrame
+        // register event handlers
         ManejadorCampoTexto manejador = new ManejadorCampoTexto();
         campoTexto1.addActionListener(manejador);
         campoTexto2.addActionListener(manejador);
@@ -41,28 +41,28 @@ public class CampoTextoMarco extends JFrame {
         campoContrasenia.addActionListener(manejador);
     }
 
-    // clase interna privada para el manejo de eventos
+    // private inner class for event handling
     private class ManejadorCampoTexto implements ActionListener {
-        // procesa los eventos de campo de texto
+       // process text field events
         @Override
         public void actionPerformed(ActionEvent evento) {
             String cadena = "";
 
-            // el usuario oprimió Intro en el objeto JTextField campoTexto1
+            // user pressed Enter in JTextField textField1
             if (evento.getSource() == campoTexto1)
                 cadena = String.format("campoTexto1: %s", evento.getActionCommand());
 
-            // el usuario oprimió Intro en el objeto JTextField campoTexto2
+            // user pressed Enter in JTextField textField2
             else if (evento.getSource() == campoTexto2)
                 cadena = String.format("campoTexto2: %s", evento.getActionCommand());
-            // el usuario oprimió Intro en el objeto JTextField campoTexto3
+            // user pressed Enter in JTextField textField3
             else if (evento.getSource() == campoTexto3)
                 cadena = String.format("campoTexto3: %s", evento.getActionCommand());
-            // el usuario oprimió Intro en el objeto JTextField campoContrasenia
+           // user pressed Enter in JPasswordField passwordField
             else if (evento.getSource() == campoContrasenia)
                 cadena = String.format("campoContrasenia: %s", evento.getActionCommand());
-            // muestra el contenido del objeto JTextField
+            // display JTextField's content
             JOptionPane.showMessageDialog(null, cadena);
         }
-    } // fin de la clase interna privada ManejadorCampoTexto
-} // fin de la clase CampoTextoMarco
+    }// end of private inner class TextFieldHandler
+} // end of class TextFieldFrame

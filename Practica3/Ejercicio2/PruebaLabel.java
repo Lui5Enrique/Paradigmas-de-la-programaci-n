@@ -1,6 +1,6 @@
 package Ejercicio2;
  // Fig. 12.7: PruebaLabel.java
-// Prueba de LabelFrame.
+// LabelFrame test.
 import javax.swing.JFrame;
 
 public class PruebaLabel {
@@ -10,4 +10,4 @@ public class PruebaLabel {
         marcoEtiqueta.setSize(260, 180);
         marcoEtiqueta.setVisible(true);
     }
-} // fin de la clase PruebaLabel
+} // end of TestLabel class

@@ -1,6 +1,6 @@
 package Ejercicio11;
 // Fig. 12.32: DetallesRaton.java
- // Prueba de MarcoDetallesRaton.
+
 import javax.swing.JFrame;
 public class DetallesRaton {
     public static void main(String[] args) { 
@@ -9,4 +9,4 @@ public class DetallesRaton {
         marcoDetallesRaton.setSize(400, 150);
         marcoDetallesRaton.setVisible(true);
     }
-} // fin de la clase DetallesRaton
+}

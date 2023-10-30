@@ -1,6 +1,6 @@
 package Ejercicio6;
 // Fig. 12.19: MarcoBotonOpcion.java
-// Creación de botones de opción, usando ButtonGroup y JRadioButton.
+// Creating radio buttons using ButtonGroup and JRadioButton.
 import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.event.ItemListener;
@@ -10,47 +10,47 @@ import javax.swing.JTextField;
 import javax.swing.JRadioButton;
 import javax.swing.ButtonGroup;
 public class MarcoBotonOpcion extends JFrame {
-    private final JTextField campoTexto; // se utiliza para mostrar los cambios en el tipo de letra
-    private final Font tipoLetraSimple; // tipo de letra para texto simple
-    private final Font tipoLetraNegrita; // tipo de letra para texto en negrita
-    private final Font tipoLetraCursiva; // tipo de letra para texto en cursiva
-    private final Font tipoLetraNegritaCursiva; // tipo de letra para texto en negrita y cursiva
-    private final JRadioButton simpleJRadioButton; // selecciona texto simple
-    private final JRadioButton negritaJRadioButton; // selecciona texto en negrita
-    private final JRadioButton cursivaJRadioButton; // selecciona texto en cursiva
-    private final JRadioButton negritaCursivaJRadioButton; // negrita y cursiva
+    private final JTextField campoTexto; // used to display changes in font style
+    private final Font tipoLetraSimple; // font for plain text
+    private final Font tipoLetraNegrita; // font for bold text
+    private final Font tipoLetraCursiva; // font for italic text
+    private final Font tipoLetraNegritaCursiva; // font for bold and italic text
+    private final JRadioButton simpleJRadioButton; // selects plain text
+    private final JRadioButton negritaJRadioButton; // selects bold text
+    private final JRadioButton cursivaJRadioButton; // selects italic text
+    private final JRadioButton negritaCursivaJRadioButton; // selects bold and italic text
     private ButtonGroup grupoOpciones;
-    // contiene los botones de opción
-    // El constructor de MarcoBotonOpcion agrega los objetos JRadioButton a JFrame
+    // contains the radio buttons
     public MarcoBotonOpcion() {
         super("Prueba de RadioButton");
         setLayout(new FlowLayout());
         campoTexto = new JTextField(" Observe el cambio en el estilo del tipo de letra", 25);
-        add(campoTexto); // agrega campoTexto a JFrame
-// crea los botones de opción
+        add(campoTexto); // add textField to JFrame
+
+        // create radio buttons
 simpleJRadioButton = new JRadioButton("Simple", true);
 negritaJRadioButton = new JRadioButton("Negrita", false);
 cursivaJRadioButton = new JRadioButton("Cursiva", false);
 negritaCursivaJRadioButton = new JRadioButton("Negrita/Cursiva", false);
-add(simpleJRadioButton); // agrega botón simple a JFrame
-add(negritaJRadioButton); // agrega botón negrita a JFrame
-add(cursivaJRadioButton); // agrega botón cursiva a JFrame
-add(negritaCursivaJRadioButton); // agrega botón negrita y cursiva
+add(simpleJRadioButton); // add plain button to JFrame
+add(negritaJRadioButton); // add bold button to JFrame
+add(cursivaJRadioButton); // add italic button to JFrame
+add(negritaCursivaJRadioButton); // add bold and italic button to JFrame
 
-// crea una relación lógica entre los objetos JRadioButton
-grupoOpciones = new ButtonGroup(); // crea ButtonGroup
-grupoOpciones.add(simpleJRadioButton); // agrega simple al grupo
-grupoOpciones.add(negritaJRadioButton); // agrega negrita al grupo
-grupoOpciones.add(cursivaJRadioButton); // agrega cursiva al grupo
-grupoOpciones.add(negritaCursivaJRadioButton); // agrega negrita y cursiva
-// crea objetos tipo de letra
+// create a logical relationship between JRadioButtons
+grupoOpciones = new ButtonGroup(); // create ButtonGroup
+grupoOpciones.add(simpleJRadioButton);// add plain to group
+grupoOpciones.add(negritaJRadioButton); // add bold to group
+grupoOpciones.add(cursivaJRadioButton);// add italic to group
+grupoOpciones.add(negritaCursivaJRadioButton); // add bold and italic
+// create font objects
 tipoLetraSimple = new Font("Serif", Font.PLAIN, 14);
 tipoLetraNegrita = new Font("Serif", Font.BOLD, 14);
 tipoLetraCursiva = new Font("Serif", Font.ITALIC, 14);
 tipoLetraNegritaCursiva = new Font("Serif", Font.BOLD + Font.ITALIC, 14);
 campoTexto.setFont(tipoLetraSimple);
 
-// registra eventos para los objetos JRadioButton
+// register events for JRadioButtons
 simpleJRadioButton.addItemListener( 
 new ManejadorBotonOpcion(tipoLetraSimple));
 negritaJRadioButton.addItemListener(
@@ -61,18 +61,17 @@ negritaCursivaJRadioButton.addItemListener(
 new ManejadorBotonOpcion(tipoLetraNegritaCursiva));
 } 
 
-// clase interna privada para manejar eventos de botones de opción
 private class ManejadorBotonOpcion implements ItemListener {
-    private Font tipoLetra; // tipo de letra asociado con este componente de escucha
+    private Font tipoLetra; 
     public ManejadorBotonOpcion(Font f) {
         tipoLetra = f;
     }
 
-    // maneja los eventos de botones de opción
+    
     @Override
     public void itemStateChanged(ItemEvent evento)
     {
         campoTexto.setFont(tipoLetra);
     }
 }
-} // fin de la clase MarcoBotonOpcion
+} 

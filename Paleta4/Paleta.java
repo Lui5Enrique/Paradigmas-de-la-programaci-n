@@ -1,16 +1,15 @@
 package Paleta4;
-//Ejercicio de interfaces
-interface cambiosPaleta {
-    public void cambioPrecio();
 
-    public void agregar();
-
-    public void informacion();
-
+// Interface for handling palette methods
+interface CambiosPaleta {
+    void cambioPrecio(double cambioP); 
+    void agregar();
+    void informacion();
     double tamaño();
 }
 
-abstract class Paleta implements cambiosPaleta {
+// Abstract class for palettes
+abstract class Paleta implements CambiosPaleta {
     private String sabor;
     private double precio;
 
@@ -19,6 +18,7 @@ abstract class Paleta implements cambiosPaleta {
         this.precio = precio;
     }
 
+    @Override
     public void cambioPrecio(double cambioP) {
         if (cambioP <= 0) {
             throw new IllegalArgumentException("El argumento para cambioPrecio debe ser mayor que cero.");
@@ -27,11 +27,13 @@ abstract class Paleta implements cambiosPaleta {
         System.out.println("Precio nuevo: $" + precio);
     }
 
+    @Override
     public void informacion() {
-        System.out.print("Sabor: " + sabor + "\nPrecio: " + precio);
+        System.out.print("Sabor: " + sabor + "\nPrecio: $" + precio);
     }
 }
 
+// Class for water-based palettes
 class PaletaAgua extends Paleta {
     private boolean baseAgua;
 
@@ -46,10 +48,7 @@ class PaletaAgua extends Paleta {
         System.out.println("\nBase de agua: " + (baseAgua ? "Si" : "No"));
     }
 
-    public void cambioPrecio() {
-        super.cambioPrecio(2);
-    }
-
+    @Override
     public void agregar() {
         System.out.println("Se ha agregado chilepiquin");
     }
@@ -57,10 +56,10 @@ class PaletaAgua extends Paleta {
     @Override
     public double tamaño() {
         return 10;
-
     }
 }
 
+// Class for cream-based palettes
 class PaletaCrema extends Paleta {
     private boolean cremosa;
     private String cubierta;
@@ -77,10 +76,7 @@ class PaletaCrema extends Paleta {
         System.out.println("\nEs cremosa: " + (cremosa ? "Si" : "No"));
     }
 
-    public void cambioPrecio() {
-        super.cambioPrecio(6);
-    }
-
+    @Override
     public void agregar() {
         System.out.println("Se ha agregado " + cubierta);
     }
@@ -88,5 +84,17 @@ class PaletaCrema extends Paleta {
     @Override
     public double tamaño() {
         return 15;
+    }
+}
+// Generic class
+class PaletasGenericas<T extends CambiosPaleta> {
+    void mostrarInformacion(T paleta) {
+        paleta.informacion(); // Calls the information method of PaletteChanges
+    }
+
+    void aplicarCambios(T paleta, double cambioPrecio) {
+        paleta.cambioPrecio(cambioPrecio); // Calls the changePrice method of PaletteChanges
+        paleta.agregar(); // Calls the addIngredient method of PaletteChanges
+        System.out.println("Tamaño: " + paleta.tamaño() + " cm");
     }
 }

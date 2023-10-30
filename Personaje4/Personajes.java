@@ -1,30 +1,61 @@
 package Personaje4;
-//Ejercicio de interfaces
-interface habilidadesMagicas {
-    public void manipularTiempo();
-
+interface HabilidadesMagicas {
+    void manipularTiempo();
+    void hechiceria();
     double recuperacion();
-
-    public void hechiceria();
 }
 
-interface habilidadesFisicas {
-    public void mejorar();
-
+interface HabilidadesFisicas {
+    void mejorar();
+    void desarrollar();
     double aumentoNivel();
-
-    public void desarrollar();
-
 }
 
-abstract class Personajes implements habilidadesMagicas, habilidadesFisicas {
+// Generic interface for displaying information and performing actions
+interface PersonajeInterface<T extends Personajes> {
+    void mostrarInformacion(T personaje); // Method to display character information
+    void realizarAcciones(T personaje); // Method to perform character actions
+}
+
+// Implementation of the generic interface
+class PersonajeGenerico<T extends Personajes> implements PersonajeInterface<T> {
+    @Override
+    public void mostrarInformacion(T personaje) {
+        System.out.println("Nombre: " + personaje.getNombre());
+        System.out.println("Nivel: " + personaje.getNivel());
+        System.out.println("Tipo: " + personaje.getClass().getSimpleName());
+    }
+
+    @Override
+    public void realizarAcciones(T personaje) {
+        System.out.println("\nControl de personaje:");
+        System.out.print("Accion: ");
+        personaje.gritar();
+        System.out.print("Accion: ");
+        personaje.atacar();
+        System.out.print("Usas: ");
+        personaje.usarHabilidadEspecial();
+        System.out.println("Recuperación: " + personaje.recuperacion());
+        System.out.print("Realizas: ");
+        personaje.manipularTiempo();
+        System.out.print("Lanzas: ");
+        personaje.hechiceria();
+        System.out.print("haz obtenido: ");
+        personaje.mejorar();
+        System.out.println("Aumento de nivel: " + personaje.aumentoNivel());
+        personaje.desarrollar();
+    }
+}
+
+// Abstract class for Characters
+abstract class Personajes implements HabilidadesFisicas, HabilidadesMagicas {
     private String nombre;
     private int nivel;
 
     public Personajes(String nombre, int nivel) {
         this.nombre = nombre;
         if (nivel <= 1) {
-            throw new IllegalArgumentException("No debe ser nivel 1.");
+            throw new IllegalArgumentException("El nivel debe ser mayor que 1.");
         }
         this.nivel = nivel;
     }
@@ -33,39 +64,28 @@ abstract class Personajes implements habilidadesMagicas, habilidadesFisicas {
         return nombre;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
     public int getNivel() {
         return nivel;
     }
 
-    public void setNivel(int nivel) {
-        this.nivel = nivel;
-    }
-
-    public void atacar() {
-        if (nivel < 5) {
-            throw new IllegalArgumentException("El nivel debe ser igual o mayor que 5.");
-        }
-        System.out.println("(Atacar objetivo)");
-    }
-
-    public void usarHabilidadEspecial() {
-        System.out.println("Uso habilidad especial");
-    }
-
     public void gritar() {
-        System.out.println("Grita");
+        System.out.println("¡Grita!");
     }
 
     @Override
     public String toString() {
         return "Nombre: " + nombre + " Nivel: " + nivel;
     }
+
+    public abstract void atacar();
+    public abstract void usarHabilidadEspecial();
+    public abstract void manipularTiempo();
+    public abstract void hechiceria();
+    public abstract void mejorar();
+    public abstract void desarrollar();
 }
 
+// Player class extending Characters and implementing interfaces
 class Jugador extends Personajes {
     private String clase;
 
@@ -83,15 +103,7 @@ class Jugador extends Personajes {
     }
 
     @Override
-    public void gritar() {
-        System.out.println("AAAAAAAAaaaaaaa");
-    }
-
-    @Override
     public void atacar() {
-        if (getNivel() < 5) {
-            throw new IllegalArgumentException("El nivel debe ser igual o mayor que 5.");
-        }
         System.out.println("Atacar al enemigo");
     }
 
@@ -101,28 +113,23 @@ class Jugador extends Personajes {
     }
 
     @Override
-    public String toString() {
-        return super.toString() + " Clase: " + clase;
-    }
-
-    @Override
     public double recuperacion() {
         return 100;
     }
 
     @Override
     public void manipularTiempo() {
-        System.out.println("Has parado el tiempo 10 segundos");
+        System.out.println("Tiempo relentizado por 10 segundos");
     }
 
     @Override
     public void hechiceria() {
-        System.out.println("Lanzaste una bola de fuego");
+        System.out.println("bola de fuego");
     }
 
     @Override
     public void mejorar() {
-        System.out.println("Te pones a hacer rutinas de ejercicio");
+        System.out.println("+10 de fuerza");
     }
 
     @Override
@@ -130,11 +137,13 @@ class Jugador extends Personajes {
         return 5;
     }
 
+    @Override
     public void desarrollar() {
         System.out.println("Desarrollas una mejor destreza");
     }
 }
 
+// Enemy class extending Characters and implementing interfaces
 class Enemigo extends Personajes {
     private String tipo;
 
@@ -152,15 +161,7 @@ class Enemigo extends Personajes {
     }
 
     @Override
-    public void gritar() {
-        System.out.println("AHhhhhhhhhhhhhh");
-    }
-
-    @Override
     public void atacar() {
-        if (getNivel() < 5) {
-            throw new IllegalArgumentException("El nivel debe ser igual o mayor que 5.");
-        }
         System.out.println("Matar al jugador");
     }
 
@@ -170,28 +171,23 @@ class Enemigo extends Personajes {
     }
 
     @Override
-    public String toString() {
-        return super.toString() + " Tipo: " + tipo;
-    }
-
-    @Override
     public double recuperacion() {
         return 150;
     }
 
     @Override
     public void manipularTiempo() {
-        System.out.println("El tiempo se paralizó ");
+        System.out.println("Congelacion de tiempo");
     }
 
     @Override
     public void hechiceria() {
-        System.out.println("Se lanza baba corrosiva");
+        System.out.println("baba corrosiva");
     }
 
     @Override
     public void mejorar() {
-        System.out.println("Mejora capacidad de almacenamiento");
+        System.out.println("Mejora en la capacidad de almacenamiento");
     }
 
     @Override
@@ -201,6 +197,6 @@ class Enemigo extends Personajes {
 
     @Override
     public void desarrollar() {
-        System.out.println("Sigilo");
+        System.out.println("Obtienes: Sigilo");
     }
 }

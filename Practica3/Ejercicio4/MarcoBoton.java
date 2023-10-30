@@ -1,7 +1,7 @@
 package Ejercicio4;
 
 // Fig. 12.15: MarcoBoton.java
-// Botones de comando y eventos de acción.
+// Command buttons and action events.
 
 import java.awt.FlowLayout;
 import java.awt.event.ActionListener;
@@ -13,34 +13,34 @@ import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
 public class MarcoBoton extends JFrame {
-    private final JButton botonJButtonSimple; // botón con texto solamente
-    private final JButton botonJButtonElegante; // botón con iconos
+    private final JButton botonJButtonSimple; // button with text only
+    private final JButton botonJButtonElegante; // button with icons
 
-    // MarcoBoton agrega objetos JButton a JFrame
+    // ButtonFrame adds JButtons to JFrame
 public MarcoBoton()
  {
     
     super("Prueba de botones");
  setLayout(new FlowLayout());
  
- botonJButtonSimple = new JButton("Boton simple"); // botón con texto
- add(botonJButtonSimple); // agrega botonJButtonSimple a JFrame
+ botonJButtonSimple = new JButton("Boton simple"); // button with text
+ add(botonJButtonSimple); // add simpleJButton to JFrame
 
  Icon insecto1 = new ImageIcon(getClass().getResource("insecto1.gif"));
-Icon insecto2 = new ImageIcon(getClass().getResource("insecto2.gif"));
- botonJButtonElegante = new JButton("Boton elegante", insecto1); // establece la imagen
- botonJButtonElegante.setRolloverIcon(insecto2); // establece la imagen de sustitución
- add(botonJButtonElegante); // agrega botonJButtonElegante a JFrame
+Icon insecto2 = new ImageIcon(getClass().getResource("insecto3.gif"));
+ botonJButtonElegante = new JButton("Boton elegante", insecto1); // set image
+ botonJButtonElegante.setRolloverIcon(insecto2); // set rollover image
+ add(botonJButtonElegante); // add fancyJButton to JFrame
 
- // crea nuevo ManejadorBoton para manejar los eventos de botón 
+ // create new ButtonHandler to handle button events
  ManejadorBoton manejador = new ManejadorBoton();
  botonJButtonElegante.addActionListener(manejador);
  botonJButtonSimple.addActionListener(manejador);
  }
 
-    // clase interna para manejar eventos de botón
+    // private inner class for button event handling
     private class ManejadorBoton implements ActionListener {
-        // maneja evento de botón
+        // handle button event
  @Override
  public void actionPerformed(ActionEvent evento)
  {
@@ -48,4 +48,4 @@ JOptionPane.showMessageDialog(MarcoBoton.this, String.format(
  "Usted oprimio: %s", evento.getActionCommand()));
  }
     }
-} // fin de la clase MarcoBoton
+} // end of class ButtonFrame

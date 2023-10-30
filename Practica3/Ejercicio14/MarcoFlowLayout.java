@@ -1,7 +1,7 @@
 package Ejercicio14;
 
 // Fig. 12.39: MarcoFlowLayout.java
-// FlowLayout permite que los componentes fluyan a través de varias líneas.
+// FlowLayout allows components to flow over multiple lines.
 import java.awt.FlowLayout;
 import java.awt.Container;
 import java.awt.event.ActionListener;
@@ -10,55 +10,55 @@ import javax.swing.JFrame;
 import javax.swing.JButton;
 
 public class MarcoFlowLayout extends JFrame {
-    private final JButton botonJButtonIzquierda; // botón para establecer la alineación a la izquierda
-    private final JButton botonJButtonCentro; // botón para establecer la alineación al centro
-    private final JButton botonJButtonDerecha; // botón para establecer la alineación a la derecha
-    private final FlowLayout esquema; // objeto esquema
-    private final Container contenedor; // contenedor para establecer el esquema
+    private final JButton botonJButtonIzquierda; // button to set alignment left
+    private final JButton botonJButtonCentro; // button to set alignment center
+    private final JButton botonJButtonDerecha; // button to set alignment right
+    private final FlowLayout esquema; // layout object
+    private final Container contenedor; // container to set layout
 
-    // establece la GUI y registra los componentes de escucha de botones
+    // set up GUI and register button listeners
     public MarcoFlowLayout() {
         super("Demostracion de FlowLayout");
         esquema = new FlowLayout();
-        contenedor = getContentPane(); // obtiene contenedor para esquema
+        contenedor = getContentPane(); // get container to set layout
         setLayout(esquema);
-        // establece botonJButtonIzquierda y registra componente de escucha
+       // set up leftButton and register listener
         botonJButtonIzquierda = new JButton("Izquierda");
-        add(botonJButtonIzquierda); // agrega botón Izquierda al marco
+        add(botonJButtonIzquierda); // add Left button to frame
         botonJButtonIzquierda.addActionListener(new ActionListener() {
-            // procesa evento de botonJButtonIzquierda
+           // process leftButton event
             @Override
             public void actionPerformed(ActionEvent evento) {
                 esquema.setAlignment(FlowLayout.LEFT);
-                // realinea los componentes adjuntos
+                // realign attached components
                 esquema.layoutContainer(contenedor);
             }
         });
-        // establece botonJButtonCentro y registra componente de escucha
+        // set up centerButton and register listener
         botonJButtonCentro = new JButton("Centro");
-        add(botonJButtonCentro); // agrega botón Centro al marco
-        botonJButtonCentro.addActionListener(new ActionListener() // clase interna anónima
+        add(botonJButtonCentro); // add Center button to frame
+        botonJButtonCentro.addActionListener(new ActionListener() // process leftButton event
         {
-            // procesa evento de botonJButtonCentro
+           
             @Override
             public void actionPerformed(ActionEvent evento) {
                 esquema.setAlignment(FlowLayout.CENTER);
-                // realinea los componentes adjuntos
+                // realign attached components
                 esquema.layoutContainer(contenedor);
             }
         });
 
-        // establece botonJButtonDerecha y registra componente de escucha
+       // set up rightButton and register listener
         botonJButtonDerecha = new JButton("Derecha");
-        add(botonJButtonDerecha); // agrega botón Derecha al marco
-        botonJButtonDerecha.addActionListener(new ActionListener() // clase interna anónima
-        { // procesa evento de botonJButtonDerecha
+        add(botonJButtonDerecha);// add Right button to frame
+        botonJButtonDerecha.addActionListener(new ActionListener() 
+        { // process rightButton event
             @Override
             public void actionPerformed(ActionEvent evento) {
                 esquema.setAlignment(FlowLayout.RIGHT);
-                // realinea los componentes adjuntos
+                // realign attached components
                 esquema.layoutContainer(contenedor);
             }
         });
-    } // fin del constructor de MarcoFlowLayout
-} // fin de la clase MarcoFlowLayou
+    } 
+} 

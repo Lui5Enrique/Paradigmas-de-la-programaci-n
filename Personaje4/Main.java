@@ -2,15 +2,18 @@ package Personaje4;
 
 public class Main {
     public static void main(String[] args) {
-        // Aqui creamos un objeto de la clase jugador
-        Jugador jugador1 = new Jugador("EzMor", 7, "Tanque");
-        System.out.println("Recuperaste " + jugador1.recuperacion() + " puntos de vida");
-        jugador1.manipularTiempo();
-        jugador1.desarrollar();
+        Jugador jugador = new Jugador("EzMOR", 10, "Guerrero");
+        Enemigo enemigo = new Enemigo("Yasuo", 8, "Monstruo");
 
-        Enemigo enemigo1 = new Enemigo("Darka", 6, "Mago");
-        System.out.println("El enemigo se regenero " + enemigo1.recuperacion() + " puntos de vida");
-        enemigo1.hechiceria();
+        PersonajeInterface<Jugador> jugadorInterface = new PersonajeGenerico<>();
+        PersonajeInterface<Enemigo> enemigoInterface = new PersonajeGenerico<>();
 
+        System.out.println("Información del Jugador:");
+        jugadorInterface.mostrarInformacion(jugador);
+        jugadorInterface.realizarAcciones(jugador);
+
+        System.out.println("\nInformación del Enemigo:");
+        enemigoInterface.mostrarInformacion(enemigo);
+        enemigoInterface.realizarAcciones(enemigo);
     }
 }

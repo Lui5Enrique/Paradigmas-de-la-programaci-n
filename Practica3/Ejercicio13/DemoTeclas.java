@@ -1,7 +1,7 @@
 package Ejercicio13;
 
 // Fig. 12.37: DemoTeclas.java
-// Prueba de MarcoDemoTeclas.
+
 import javax.swing.JFrame;
 
 public class DemoTeclas {
@@ -11,4 +11,4 @@ public class DemoTeclas {
         marcoDemoTeclas.setSize(350, 100);
         marcoDemoTeclas.setVisible(true);
     }
-} // fin de la clase DemoTeclas
+} 

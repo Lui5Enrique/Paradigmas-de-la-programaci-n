@@ -1,6 +1,6 @@
 package Ejercicio7;
 // Fig. 12.21: MarcoCuadroCombinado.java
-// Objeto JComboBox que muestra una lista de nombres de imágenes.
+// JComboBox that displays a list of image names.
 import java.awt.FlowLayout;
 import java.awt.event.ItemListener;
 import java.awt.event.ItemEvent;
@@ -11,8 +11,8 @@ import javax.swing.Icon;
 import javax.swing.ImageIcon;
 
 public class MarcoCuadroCombinado extends JFrame {
-    private final JComboBox<String> imagenesJComboBox; // contiene los nombres de los iconos
-    private final JLabel etiqueta; // muestra el icono seleccionado
+    private final JComboBox<String> imagenesJComboBox; // contains icon names
+    private final JLabel etiqueta; // displays selected icon
     private static final String nombres[] = { "insecto1.gif", "insecto2.gif", "insecto3.gif", "insecto4.gif" };
     private final Icon[] iconos = {
         new ImageIcon(getClass().getResource("insecto1.gif")),
@@ -20,28 +20,26 @@ public class MarcoCuadroCombinado extends JFrame {
         new ImageIcon(getClass().getResource("insecto3.gif")),
         new ImageIcon(getClass().getResource("insecto4.gif"))};
 
-
-
-    // El constructor de MarcoCuadroCombinado agrega un objeto JComboBox a JFrame
     public MarcoCuadroCombinado() {
         super("Prueba de JComboBox");
-        setLayout(new FlowLayout()); // establece el esquema del marco
-        imagenesJComboBox = new JComboBox<String>(nombres); // establece JComboBox
-        imagenesJComboBox.setMaximumRowCount(3); // muestra tres filas
+        setLayout(new FlowLayout());// set frame layout
+        imagenesJComboBox = new JComboBox<String>(nombres); // set up JComboBox
+        imagenesJComboBox.setMaximumRowCount(3); // display three rows
         imagenesJComboBox.addItemListener(
-                new ItemListener() // clase interna anónima
-                {// maneja evento de JComboBox
+                new ItemListener() // anonymous inner class
+                { 
+                    // handle JComboBox event
                     @Override
                     public void itemStateChanged(ItemEvent evento) {
-                        // determina si está seleccionado el elemento
+                       // determine whether item selected
                         if (evento.getStateChange() == ItemEvent.SELECTED)
                             etiqueta.setIcon(iconos[imagenesJComboBox.getSelectedIndex()]);
                     }
-                } // fin de la clase interna anónima
-        ); // fin de la llamada a addItemListener
+                } 
+        ); 
 
-        add(imagenesJComboBox); // agrega cuadro combinado a JFrame
-        etiqueta = new JLabel(iconos[0]); // muestra el primer icono
-        add(etiqueta); // agrega etiqueta a JFrame
+        add(imagenesJComboBox); // add combobox to JFrame
+        etiqueta = new JLabel(iconos[0]); // display first icon
+        add(etiqueta); // add label to JFrame
     }
-} // fin de la clase MarcoCuadroCombinado
+} 

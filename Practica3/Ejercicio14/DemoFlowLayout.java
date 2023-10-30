@@ -1,7 +1,6 @@
 package Ejercicio14;
 
 // Fig. 12.40: DemoFlowLayout.java
-// Prueba MarcoFlowLayout.
 import javax.swing.JFrame;
 
 public class DemoFlowLayout {
@@ -11,4 +10,4 @@ public class DemoFlowLayout {
         marcoFlowLayout.setSize(300, 75);
         marcoFlowLayout.setVisible(true);
     }
-} // fin de la clase DemoFlowLayout
+} 

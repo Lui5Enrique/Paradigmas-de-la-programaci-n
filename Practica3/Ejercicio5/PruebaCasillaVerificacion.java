@@ -1,6 +1,5 @@
 package Ejercicio5;
 // Fig. 12.18: PruebaCasillaVerificacion.java
-// Prueba de MarcoCasillaVerificacion.
 import javax.swing.JFrame;
 public class PruebaCasillaVerificacion {
     public static void main(String[] args){ 
@@ -9,4 +8,4 @@ public class PruebaCasillaVerificacion {
         marcoCasillaVerificacion.setSize(275, 100); 
         marcoCasillaVerificacion.setVisible(true);
     } 
-} // fin de la clase PruebaCasillaVerificacio
+} 

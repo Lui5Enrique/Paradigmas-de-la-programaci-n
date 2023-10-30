@@ -1,6 +1,6 @@
 package Ejercicio17;
 // Fig. 12.46: DemoPanel.java
-// Prueba de MarcoPanel.
+
 import javax.swing.JFrame;
 
 public class DemoPanel extends JFrame {
@@ -10,4 +10,4 @@ public class DemoPanel extends JFrame {
         marcoPanel.setSize(450, 200);
         marcoPanel.setVisible(true);
     }
-} // fin de la clase DemoPanel
+} 

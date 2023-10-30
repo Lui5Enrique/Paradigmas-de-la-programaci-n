@@ -1,7 +1,6 @@
 package Ejercicio15;
 
 // Fig. 12.42: DemoBorderLayout.java
-// Prueba de MarcoBorderLayout.
 import javax.swing.JFrame;
 
 public class DemoBorderLayout {
@@ -11,4 +10,4 @@ public class DemoBorderLayout {
         marcoBorderLayout.setSize(300, 200);
         marcoBorderLayout.setVisible(true);
     }
-} // fin de la clase DemoBorderLayout
+} 

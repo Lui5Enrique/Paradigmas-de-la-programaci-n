@@ -1,6 +1,5 @@
 package Ejercicio6;
 // Fig. 12.20: PruebaBotonOpcion.java
-// Prueba de MarcoBotonOpcion.
 import javax.swing.JFrame;
 public class PruebaBotonOpcion {
     public static void main(String[] args){
@@ -9,4 +8,4 @@ public class PruebaBotonOpcion {
         marcoBotonOpcion.setSize(300, 100);
         marcoBotonOpcion.setVisible(true);
     }
-} // fin de la clase PruebaBotonOpcion
+} 

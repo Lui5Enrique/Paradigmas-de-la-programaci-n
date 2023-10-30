@@ -1,7 +1,7 @@
 package Ejercicio8;
 
 // Fig. 12.24: PruebaLista.java
-// Selección de colores de un objeto JList.
+
 import javax.swing.JFrame;
 
 public class PruebaLista {
@@ -11,4 +11,4 @@ public class PruebaLista {
         marcoLista.setSize(350, 150);
         marcoLista.setVisible(true);
     }
-} // fin de la clase PruebaLista
+} 

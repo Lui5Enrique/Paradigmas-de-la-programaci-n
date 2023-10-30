@@ -1,7 +1,7 @@
 package Ejercicio3;
 
 // Fig. 12.10: PruebaCampoTexto.java
-// Prueba de CampoTextoMarco.
+// Test of TextFieldFrame.
 import javax.swing.JFrame;
 public class PruebaCampoTexto {
     public static void main(String[] args) { 
@@ -10,4 +10,4 @@ public class PruebaCampoTexto {
         campoTextoMarco.setSize(350, 100); 
         campoTextoMarco.setVisible(true);
     } 
-} // fin de la clase PruebaCampoTexto
+} // end of class TestTextField

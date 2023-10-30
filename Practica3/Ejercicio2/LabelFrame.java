@@ -1,36 +1,36 @@
 package Ejercicio2;
 // Fig. 12.6: LabelFrame.java
-// Componentes Jlabel con texto e iconos.
-import java.awt.FlowLayout; // especifica cómo se van a ordenar los componentes
-import javax.swing.JFrame; // proporciona las características básicas de una ventana
-import javax.swing.JLabel; // muestra texto e imágenes
-import javax.swing.SwingConstants; // constantes comunes utilizadas con Swing
-import javax.swing.Icon; // interfaz utilizada para manipular imágenes
-import javax.swing.ImageIcon; // carga las imágenes
+// Jlabel components with text and icons.
+import java.awt.FlowLayout; // specifies how components are sorted
+import javax.swing.JFrame; // Provides the basic features of a window
+import javax.swing.JLabel; // Displays text and images
+import javax.swing.SwingConstants; // common constants used with Swing
+import javax.swing.Icon; // interface used to manipulate images
+import javax.swing.ImageIcon; 
 
 public class LabelFrame extends JFrame {
-    private JLabel etiqueta1; // JLabel sólo con texto
-    private JLabel etiqueta2; // JLabel construida con texto y un icono
-    private JLabel etiqueta3; // JLabel con texto adicional e icono
-    // El constructor de LabelFrame agrega objetos JLabel a JFrame
+    private JLabel etiqueta1; // JLabel with text only
+    private JLabel etiqueta2; // JLabel built with text and an icon
+    private JLabel etiqueta3; // JLabel with additional text and icon
+    // LabelFrame constructor adds JLabel objects to JFrame
     public LabelFrame() {
         super("Prueba de JLabel");    
-        setLayout(new FlowLayout()); // establece el esquema del marco
-        // Constructor J Label con un argumento String
+        setLayout(new FlowLayout()); // Sets the framework schema
+        // J Label constructor with a String argument
         etiqueta1 = new JLabel("Etiqueta con texto");
         etiqueta1.setToolTipText("Esta es etiqueta1");
-        add(etiqueta1); // agrega etiqueta1 a JFrame
-        // Constructor de JLabel con argumentos de cadena, Icono y alineación
+        add(etiqueta1); // adds tag1 to JFrame
+        // JLabel constructor with string, icon, and alignment arguments
         Icon insecto = new ImageIcon(getClass().getResource( "insecto1.png"));
         etiqueta2 = new JLabel("Etiqueta con texto e icono", insecto, SwingConstants.LEFT);
         etiqueta2.setToolTipText("Esta es etiqueta2");
-        add(etiqueta2); // agrega etiqueta2 a JFrame
-        etiqueta3 = new JLabel(); // constructor de JLabel sin argumentos
+        add(etiqueta2); // adds tag2 to JFrame
+        etiqueta3 = new JLabel(); // JLabel constructor without arguments
         etiqueta3.setText("Etiqueta con icono y texto en la parte inferior");
-        etiqueta3.setIcon(insecto); // agrega icono a JLabel
+        etiqueta3.setIcon(insecto); // adds icon to JLabel
         etiqueta3.setHorizontalTextPosition(SwingConstants.CENTER);
         etiqueta3.setVerticalTextPosition(SwingConstants.BOTTOM);
         etiqueta3.setToolTipText("Esta es etiqueta3");
-        add(etiqueta3); // agrega etiqueta3 a JFrame
+        add(etiqueta3); // adds tag3 to JFrame
     }
-} // fin de la clase LabelFrame
+} // end of the LabelFrame class

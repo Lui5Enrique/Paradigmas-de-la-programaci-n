@@ -1,6 +1,6 @@
 package Ejercicio7;
 // Fig. 12.22: PruebaCuadroCombinado.java
-// Prueba de MarcoCuadroCombinado.
+
 import javax.swing.JFrame;
 
 public class PruebaCuadroCombinado {
@@ -10,4 +10,4 @@ public class PruebaCuadroCombinado {
         marcoCuadroCombinado.setSize(350, 150);
         marcoCuadroCombinado.setVisible(true);
     }
-} // fin de la clase PruebaCuadroCombinado
+} 

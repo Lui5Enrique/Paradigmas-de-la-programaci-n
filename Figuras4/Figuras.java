@@ -1,12 +1,10 @@
 package Figuras4;
-//Ejercicio de interfaces
-//interfaz para tener los métodos que se usaran en las demas subclases.
+
+
 interface FigCalculos {
     double calcularArea();
 
     double calcularPerimetro();
-
-    String informacion();
 
     public void pintar();
 }
@@ -28,6 +26,27 @@ abstract class Figuras implements FigCalculos {
 
 }
 
+class FigurasGenericas <T extends FigCalculos>{
+    private T figura;
+
+    public FigurasGenericas(T figura){
+        this.figura = figura;   // Assigns the figure object passed as a parameter to the 'figure' field
+    }
+
+    public String tipoFigura(){
+        if(figura instanceof Figuras){  // Checks if the figure is an instance of the Figures class
+            return ((Figuras) figura).getNombre(); // Gets the name of the figure using the getName() method of Figures
+        } else{
+            return "Figura inexistente";  // Returns a message if the figure is not an instance of Figures
+        }
+    }
+
+    public void caracteristicas(){
+        System.out.println("Figura: " + tipoFigura());  
+        System.out.println("Área: " + figura.calcularArea()); 
+        System.out.println("Perimetro: " + figura.calcularPerimetro()); 
+    }
+}
 class Circulo extends Figuras {
     private double radio;
 
@@ -44,11 +63,6 @@ class Circulo extends Figuras {
     @Override
     public double calcularPerimetro() {
         return 2 * Math.PI * radio;
-    }
-
-    @Override
-    public String informacion() {
-        return " [Área del circulo]= " + calcularArea() + " [Perímetro]= " + calcularPerimetro();
     }
 
     @Override
@@ -74,11 +88,6 @@ class Rectangulo extends Figuras {
     @Override
     public double calcularPerimetro() {
         return 2 * (base + altura);
-    }
-
-    @Override
-    public String informacion() {
-        return " [Área del rectangulo]= " + calcularArea() + " [Perímetro]= " + calcularPerimetro();
     }
 
     @Override
@@ -116,11 +125,6 @@ class Triangulo extends Figuras {
     @Override
     public double calcularPerimetro() {
         return lado1 + lado2 + lado3;
-    }
-
-    @Override
-    public String informacion() {
-        return " [Área del triangulo]= " + calcularArea() + " [Perímetro]= " + calcularPerimetro();
     }
 
     @Override

@@ -1,7 +1,7 @@
 package Ejercicio10;
 
 // Fig. 12.29: MarcoRastreadorRaton.java
-// Prueba de MarcoRastreadorRaton.
+
 import javax.swing.JFrame;
 public class RastreadorRaton {
     public static void main(String[] args) { 
@@ -10,4 +10,4 @@ public class RastreadorRaton {
         marcoRastreadorRaton.setSize(300, 100);
         marcoRastreadorRaton.setVisible(true); 
     }
-} // fin de la clase RastreadorRaton
+} 

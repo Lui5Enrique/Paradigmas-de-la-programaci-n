@@ -2,20 +2,18 @@ package Paleta4;
 
 public class Main {
     public static void main(String[] args) {
-        PaletaAgua p1 = new PaletaAgua("Fresa", 2, true);
-        p1.informacion();
-        p1.cambioPrecio();
-        p1.agregar();
+        PaletaAgua paletaAgua = new PaletaAgua("Fresa", 8.0, true);
+        PaletaCrema paletaCrema = new PaletaCrema("Chocolate", 10.0, true, "Nuez");
 
-        System.out.println("El tamaño de la paleta es: " + p1.tamaño());
+        PaletasGenericas<PaletaAgua> manejadorPaletasAgua = new PaletasGenericas<>();
+        PaletasGenericas<PaletaCrema> manejadorPaletasCrema = new PaletasGenericas<>();
 
-        PaletaCrema p2 = new PaletaCrema("Chocolate", 20, true, "Nuez");
-        p2.informacion();
-        p2.cambioPrecio();
-        p2.agregar();
+        System.out.println("Información de la paleta de agua:");
+        manejadorPaletasAgua.mostrarInformacion(paletaAgua);
+        manejadorPaletasAgua.aplicarCambios(paletaAgua, 2.0);
 
-        System.out.println("El tamaño de la paleta es: " + p2.tamaño());
-
+        System.out.println("\nInformación de la paleta de crema:");
+        manejadorPaletasCrema.mostrarInformacion(paletaCrema);
+        manejadorPaletasCrema.aplicarCambios(paletaCrema, 3.0);
     }
-
 }

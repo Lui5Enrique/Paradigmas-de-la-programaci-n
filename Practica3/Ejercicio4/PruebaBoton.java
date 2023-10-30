@@ -1,7 +1,7 @@
 package Ejercicio4;
 
 
-  // Prueba de MarcoBoton.
+  // Test of ButtonFrame.
   import javax.swing.JFrame;
  
   public class PruebaBoton 
@@ -13,4 +13,4 @@ package Ejercicio4;
  marcoBoton.setSize(275, 110);
  marcoBoton.setVisible(true);
  }
- } // fin de la clase PruebaBoton
+ } // end of class TestButton

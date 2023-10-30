@@ -1,6 +1,6 @@
 package Ejercicio12;
 // Fig. 12.34: PanelDibujo.java
-// Clase adaptadora que se usa para implementar manejadores de eventos.
+// Demonstrating mouse clicks and distinguishing between mouse buttons.
 import java.awt.Point;
 import java.awt.Graphics;
 import java.awt.event.MouseEvent;
@@ -9,30 +9,29 @@ import java.util.ArrayList;
 import javax.swing.JPanel;
 
 public class PanelDibujo extends JPanel {
-    // lista de referencias Point
+    // String to display in the statusBar
     private final ArrayList<Point> puntos = new ArrayList<>();
-    // establece la GUI y registra el manejador de eventos del ratón
+    // set up the GUI and register the mouse event handler
 
     public PanelDibujo() {
-        // maneja evento de movimiento del ratón en el marco
+        // handle mouse motion event in the frame
         addMouseMotionListener(new MouseMotionAdapter() {
-            // almacena las coordenadas de arrastre y vuelve a dibujar
+            // store drag coordinates and repaint
             @Override
             public void mouseDragged(MouseEvent evento) {
                 puntos.add(evento.getPoint());
-                repaint(); // vuelve a dibujar JFrame
+                repaint(); // redraw the JFrame
             }
         });
     }
 
-    // dibuja óvalos en un cuadro delimitador de 4 x 4, en las ubicaciones
-    // especificadas en la ventana
+    // draw ovals in a 4-by-4 bounding box at specified locations in the window
     @Override
     public void paintComponent(Graphics g) {
-        super.paintComponent(g); // borra el área de dibujo
+        super.paintComponent(g); // clear the drawing area
 
-        // dibuja todos los puntos
+        // draw all the points
         for (Point punto : puntos)
             g.fillOval(punto.x, punto.y, 4, 4);
     }
-} // fin de la clase PanelDibujo
+} 
