@@ -1,0 +1,68 @@
+@startuml
+class Usuario {
+  - id: int
+  - nombre: String
+  - apellido: String
+  - correoElectronico: String
+  - contraseña: String
+  ____________________
+  + Usuario(id: int, nombre: String, apellido: String, correoElectronico: String, contraseña: String)
+  + getId(): int
+  + setId(id: int): void
+  + getNombre(): String
+  + setNombre(nombre: String): void
+  + getApellido(): String
+  + setApellido(apellido: String): void
+  + getCorreoElectronico(): String
+  + setCorreoElectronico(correoElectronico: String): void
+  + getContraseña(): String
+  + setContraseña(contraseña: String): void
+  + toString(): String
+}
+
+interface UsuarioDAO {
+  + crearUsuario(usuario: Usuario): void
+  + obtenerUsuarioPorId(id: int): Usuario
+  + obtenerTodosLosUsuarios(): List<Usuario>
+  + actualizarUsuario(usuario: Usuario): void
+  + eliminarUsuario(id: int): void
+}
+
+class UsuarioDAOArchivo {
+  - ARCHIVO_USUARIOS: String
+  ____________________
+  + crearUsuario(usuario: Usuario): void
+  + obtenerUsuarioPorId(id: int): Usuario
+  + obtenerTodosLosUsuarios(): List<Usuario>
+  + actualizarUsuario(usuario: Usuario): void
+  + eliminarUsuario(id: int): void
+  - leerUsuariosDesdeArchivo(): List<Usuario>
+  - escribirUsuariosEnArchivo(usuarios: List<Usuario>): void
+}
+
+class UsuarioDAOMySQL {
+  - driver: String
+  - url: String
+  - usr: String
+  - pass: String
+  - id: String
+  - nom: String
+  - ap: String
+  - correo: String
+  - con: String
+  ____________________
+  + conectar(): Connection
+  + insertar(): void
+  + selecreg(): void
+  + actreg(): void
+  + elimreg(): void
+  + crearUsuario(usuario: Usuario): void
+  + obtenerTodosLosUsuarios(): List<Usuario>
+  + actualizarUsuario(usuario: Usuario): void
+  + eliminarUsuario(id: int): void
+}
+
+UsuarioDAO <|-- UsuarioDAOArchivo
+UsuarioDAO <|-- UsuarioDAOMySQL
+UsuarioDAO "1" -- "*" Usuario : usa
+@enduml
